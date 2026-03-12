@@ -1,0 +1,27 @@
+<main class="app-shell">
+  <mat-toolbar class="top-bar" color="primary">
+    <div class="brand">OrderForge</div>
+
+    <nav class="menu" *ngIf="authService.hasToken()">
+      <a mat-button routerLink="/products">Products</a>
+      <a mat-button routerLink="/cart">Cart</a>
+      <a mat-button routerLink="/orders/checkout">Checkout</a>
+      <a mat-button *ngIf="authService.getRole() === 'Admin'" routerLink="/admin/new">New Product</a>
+    </nav>
+
+    <span class="spacer"></span>
+
+    <button mat-icon-button routerLink="/orders/notifications" *ngIf="authService.hasToken()">
+      <mat-icon [matBadge]="(unreadCount$ | async) ?? 0" matBadgeColor="warn">notifications</mat-icon>
+    </button>
+
+    <button mat-button *ngIf="!authService.hasToken()" routerLink="/login">Login</button>
+    <button mat-button *ngIf="authService.hasToken()" (click)="logout()">Logout</button>
+  </mat-toolbar>
+
+  <section class="content-wrap">
+    <router-outlet></router-outlet>
+  </section>
+
+  <app-notification-center></app-notification-center>
+</main>
