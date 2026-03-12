@@ -28,4 +28,4 @@ import { NotificationCenterComponent } from './features/orders/notification-cent
   ],
   bootstrap: [App]
 })
-export class AppModule {}
+export class AppModule { }
