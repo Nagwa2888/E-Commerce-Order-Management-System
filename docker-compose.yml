@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: ecom-sqlserver
+    environment:
+      ACCEPT_EULA: 'Y'
+      SA_PASSWORD: 'Your_strong_password123'
+    ports:
+      - '1433:1433'
+    healthcheck:
+      test: ["CMD", "/opt/mssql-tools18/bin/sqlcmd", "-C", "-S", "localhost", "-U", "sa", "-P", "Your_strong_password123", "-Q", "SELECT 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+
+  redis:
+    image: redis:7-alpine
+    container_name: ecom-redis
+    ports:
+      - '6379:6379'
+    command: ["redis-server", "--appendonly", "yes"]

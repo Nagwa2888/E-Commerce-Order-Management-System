@@ -1,20 +1,4 @@
-@use '@angular/material' as mat;
-
-@include mat.core();
-
-$theme-primary: mat.define-palette(mat.$blue-palette, 700);
-$theme-accent: mat.define-palette(mat.$orange-palette, 500);
-$theme-warn: mat.define-palette(mat.$red-palette, 600);
-
-$theme: mat.define-light-theme((
-  color: (
-    primary: $theme-primary,
-    accent: $theme-accent,
-    warn: $theme-warn
-  )
-));
-
-@include mat.all-component-themes($theme);
+@import '@angular/material/prebuilt-themes/azure-blue.css';
 
 html, body {
   margin: 0;

@@ -4,6 +4,7 @@ import { OrderStateService } from '../../core/services/order-state.service';
 
 @Component({
   selector: 'app-order-summary',
+  standalone: false,
   template: `
     <mat-card *ngIf="orderStateService.getLastOrder() as order; else noOrder">
       <h2>Order Summary</h2>

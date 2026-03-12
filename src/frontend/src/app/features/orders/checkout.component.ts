@@ -7,6 +7,7 @@ import { OrderStateService } from '../../core/services/order-state.service';
 
 @Component({
   selector: 'app-checkout',
+  standalone: false,
   template: `
     <mat-card>
       <h2>Checkout</h2>

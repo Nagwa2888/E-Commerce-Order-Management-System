@@ -9,7 +9,7 @@ public static class DbSeeder
 {
     public static async Task SeedAsync(AppDbContext dbContext, CancellationToken cancellationToken)
     {
-        await dbContext.Database.MigrateAsync(cancellationToken);
+        await dbContext.Database.EnsureCreatedAsync(cancellationToken);
 
         if (!await dbContext.Users.AnyAsync(cancellationToken))
         {

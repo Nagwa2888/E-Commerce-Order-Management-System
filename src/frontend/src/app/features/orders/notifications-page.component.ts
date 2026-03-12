@@ -3,6 +3,7 @@ import { NotificationService } from '../../core/services/notification.service';
 
 @Component({
   selector: 'app-notifications-page',
+  standalone: false,
   template: `
     <mat-card>
       <h2>Notification Center</h2>
