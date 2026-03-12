@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing-module';
@@ -23,8 +23,7 @@ import { NotificationCenterComponent } from './features/orders/notification-cent
     AppRoutingModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useValue: authInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useValue: errorInterceptor, multi: true }
+    provideHttpClient(withInterceptors([authInterceptor, errorInterceptor]))
   ],
   bootstrap: [App]
 })

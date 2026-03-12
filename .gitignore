@@ -1,0 +1,20 @@
+# General
+.DS_Store
+Thumbs.db
+*.log
+
+# .NET
+**/bin/
+**/obj/
+*.user
+*.suo
+*.cache
+
+# Angular / Node
+**/node_modules/
+**/dist/
+**/.angular/
+**/coverage/
+
+# VS Code
+.vscode/*.log

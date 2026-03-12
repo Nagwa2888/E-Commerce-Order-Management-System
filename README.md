@@ -149,6 +149,28 @@ cd src/frontend
 npm run build
 ```
 
+## 7.1 End-to-End Smoke Test
+
+After starting infrastructure and backend, run:
+
+```bash
+./scripts/smoke-test.sh
+```
+
+Optional custom API base URL:
+
+```bash
+API_BASE_URL=https://localhost:5001 ./scripts/smoke-test.sh
+```
+
+This script verifies:
+- Admin and customer authentication
+- Product listing with paging/sort/filter query path
+- Product details fetch
+- Admin product creation and update
+- Customer order creation with discount fields
+- Authentication negative case (invalid credentials returns 401)
+
 ## 8. API Endpoints (Summary)
 
 Auth:
